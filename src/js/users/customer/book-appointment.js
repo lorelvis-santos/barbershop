@@ -4,29 +4,31 @@ let slider = null;
 let currentEmployeeContainer = null;
 let currentTimeContainer = null;
 
-const appointment = {
-    name: "",
-    date: "",
-    time: "",
-    services: [],
-    totalPrice: 0,
-    userId: "",
-    employee: {
-        id: "",
-        name: "",
-        phone: "",
-        email: "",
-        roleId: "",
-        role: "",
-        image: ""
-    }
-};
+let appointment;
 
 document.addEventListener("DOMContentLoaded", function() {
     init();
 })
 
 function init() {
+    appointment = {
+        name: "",
+        date: "",
+        time: "",
+        services: [],
+        totalPrice: 0,
+        userId: "",
+        employee: {
+            id: "",
+            name: "",
+            phone: "",
+            email: "",
+            roleId: "",
+            role: "",
+            image: ""
+        }
+    };
+
     showSection(step);
     checkPagination(step);
 
