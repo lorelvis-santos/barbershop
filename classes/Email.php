@@ -5,13 +5,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class Email {
     protected static $mail = null;
-    protected static $host = $_ENV["EMAIL_HOST"];
-    protected static $port = $_ENV["EMAIL_PORT"];
-    protected static $username = $_ENV["EMAIL_USERNAME"];
-    protected static $password = $_ENV["EMAIL_PASSWORD"];
-    protected static $SMTPsecure = "tls";
-    protected static $SMTPauth = true;
-    protected static $charset = "UTF8";
 
     public static function send($fromEmail, $fromName, $toEmail, $toName, $subject, $body, $altBody, $isHtml = false) : bool {
         self::checkConnection();
@@ -23,7 +16,9 @@ class Email {
         self::$mail->Body = $body;
         self::$mail->AltBody = $altBody;
 
-        return self::$mail->send();
+        debug(self::$mail->send());
+
+        return true;
     }
 
     protected static function start() : bool {
@@ -32,13 +27,13 @@ class Email {
 
         // Configuring SMTP.
         self::$mail->isSMTP();
-        self::$mail->SMTPAuth = self::$SMTPauth;
-        self::$mail->Host = self::$host;
-        self::$mail->Port = self::$port;
-        self::$mail->Username = self::$username;
-        self::$mail->Password = self::$password;
-        self::$mail->SMTPSecure = self::$SMTPsecure;
-        self::$mail->CharSet = self::$charset;
+        self::$mail->SMTPAuth = true;
+        self::$mail->Host = $_ENV["EMAIL_HOST"];
+        self::$mail->Port = $_ENV["EMAIL_PORT"];
+        self::$mail->Username =  $_ENV["EMAIL_USERNAME"];
+        self::$mail->Password = $_ENV["EMAIL_PASSWORD"];
+        self::$mail->SMTPSecure = "tls";
+        self::$mail->CharSet = "UTF8";
 
         return true;
     }

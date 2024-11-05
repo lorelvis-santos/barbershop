@@ -15,16 +15,6 @@ class Router {
     }
 
     public function checkRoutes() {
-        // session_start();
-
-        // $auth = $_SESSION["auth"] ?? null;
-
-        // $protectedUrls = [
-            
-        // ];
-
-        //debug($_SERVER);
-
         $currentUrl = strtok($_SERVER["REQUEST_URI"], "?") ?? "/";
         $method = $_SERVER["REQUEST_METHOD"];
 
@@ -33,10 +23,6 @@ class Router {
         } else if ($method === "POST") {
             $function = $this->POST[$currentUrl] ?? null;
         }
-
-        // if (in_array($currentUrl, $protectedUrls) && !$auth) {
-        //     header("Location: /");
-        // }
 
         if ($function) {
             // Page exists.

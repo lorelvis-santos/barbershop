@@ -60,9 +60,10 @@ class LoginController
     public static function login(Router $router)
     {
         $alerts = [];
+        $user = new User;
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $user = new User($_POST);
+            $user->sync($_POST);
 
             if ($user->login()) {
                 if (isType("employee") || isType("admin")){

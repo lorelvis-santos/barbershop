@@ -298,6 +298,8 @@ async function getServices() {
         try {
             const url = `/api/services?id=${appointment.employee.roleId}`;
 
+            console.log(url);
+
             const result = await fetch(url);
             const services = await result.json();
     

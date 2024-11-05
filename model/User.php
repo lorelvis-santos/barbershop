@@ -223,7 +223,7 @@ class User extends ActiveRecord {
             <html style="font-size:20px;font-family: Arial, sans-serif">
                 <h2 style="margin-bottom: 16px">Hola $this->name.</h2>
                 <p style="margin-top:0">
-                    Estás a un paso de crear tu cuenta en <a href="$httphost">Barbershop</a>. Haz click en el siguiente enlace para confirmar tu cuenta.
+                    Estás a un paso de crear tu cuenta en <a href="$appURL">Barbershop</a>. Haz click en el siguiente enlace para confirmar tu cuenta.
                 </p>
                 <a href="$appURL/confirmar?token=$this->token">Confirmar cuenta</a>
                 <br>
