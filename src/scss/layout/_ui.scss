@@ -1,0 +1,79 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.container-app {
+    @include m.desktop {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        min-height: 100vh;
+    }
+}
+
+.webp .image {
+    background-image: url("../img/barbercuttinghair.webp");
+}
+
+.no-webp .image {
+    background-image: url("../img/barbercuttinghair.jpg");
+}
+
+.image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    //background-attachment: fixed;
+    height: 25rem;
+
+    @include m.desktop {
+        height: 100vh;
+        width: 45vw;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    &__title {
+        margin: 0;
+    }
+}
+
+.app {
+    width: 95%;
+    padding-inline: 1rem;
+    padding-bottom: 3rem;
+    margin: 0 auto;
+
+    @include m.desktop {
+        padding-inline: 2rem;
+        grid-column: 2;
+    }
+}
+
+.section {
+    padding: p.$gap 0;
+    display: none;
+
+    .text-center {
+        font-size: 2.6rem;
+    }
+
+    h2 {
+        margin-bottom: p.$gap;
+    }
+}
+
+.subsection {
+    margin-bottom: 8rem;
+
+    &:nth-last-child(1 of .subsection) {
+        margin-bottom: 0;
+    }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

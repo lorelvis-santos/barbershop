@@ -1,0 +1,41 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.place-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.place-center {
+    display: flex;
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.no-cursor-events {
+    pointer-events: none;
+}
+
+.hover-scale {
+    transition: scale .3s ease-out;
+
+    &:hover {
+        scale: 1.07;
+        cursor: pointer;
+    } 
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}

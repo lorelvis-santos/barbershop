@@ -1,0 +1,232 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.appointments {
+    h3 {
+        margin-block: 8rem;
+    }
+}
+
+.booked-appointments {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    h4 {
+        font-size: 2.4rem;
+        margin: 0 0 3rem 0;
+        text-align: center;
+
+        @include m.tablet {
+            text-align: left;
+        }
+    }
+}
+
+.appointment {
+    background-color: lighten(p.$black, 5%);
+    border: 3px solid lighten(p.$black, 10%);
+    border-radius: 1.5rem;
+    padding: 3.2rem;
+    width: 90%;
+    max-width: 55rem;
+    margin: 0 auto;
+
+    svg {
+        pointer-events: none;
+    }
+}
+
+.appointment__info {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    flex-direction: column;
+
+    .appointment__day {
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid lighten(p.$black, 10%);
+
+        @include m.tablet {
+            flex-direction: row
+        }
+    }
+
+    .appointment__date,
+    .appointment__time,
+    .appointment__customer {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        flex-direction: column;
+        
+        @include m.tablet {
+            flex-direction: row;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        svg {
+            width: 3.6rem;
+            height: 3.6rem;
+        }
+    }
+
+    .appointment__date,
+    .appointment__time {
+        p {
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        svg {
+            @include m.tablet {
+                width: 2.8rem;
+                height: 2.8rem;
+            }
+        }
+    }
+
+    .appointment__customer {
+        svg {
+            @include m.tablet {
+                width: 2.4rem;
+                height: 2.4rem;
+            }
+        }
+
+        p {
+            font-weight: p.$bold;
+            text-align: center;
+        }
+    }
+}
+
+.appointment__services {
+    display: flex; 
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 10rem;
+
+    .appointment__service {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid lighten(p.$black, 10%);
+
+        @include m.tablet {
+            flex-direction: row;
+            text-align: left;
+            justify-content: space-between;
+            gap: 5rem;
+        }
+
+        &__name,
+        &__price {
+            margin: 0;
+        }
+
+        &__name {
+            font-size: 2rem;
+            max-width: 25rem;
+            margin-bottom: 2rem;
+
+            @include m.tablet {
+                margin-bottom: 0;
+            }
+        }
+
+        &__price {
+            font-weight: p.$bold;
+            color: lighten(p.$green, 5%);
+            font-size: 2rem;
+        }
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.appointment__total-price {
+    display: flex;
+    justify-content: center;
+
+    @include m.tablet {
+        justify-content: flex-start;
+    }
+
+    .total-price {
+        span {
+            font-size: 2.6rem;
+        }
+    }
+}
+
+.appointment__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 6rem;
+
+    @include m.phoneSM {
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+
+    button {
+        padding: 1.2rem 1.6rem;
+        border-radius: 1.2rem;
+        border: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        transition: opacity .3s ease-out;
+        height: 6.5rem;
+
+        @include m.tablet {
+            width: 7.2rem;
+        }
+
+        p {
+            font-size: 2rem;
+            margin: 0;
+            font-weight: p.$bold;
+        }
+
+        svg {
+            width: 3.4rem;
+            height: 3.4rem;
+
+            &.whatsapp {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        &:hover {
+            opacity: 70%;
+        }
+    }
+
+    #message-customer,
+    #call-customer {
+        background-color: p.$green;
+    }
+
+    #delete-appointment {
+        background-color: p.$red;
+    }
+}

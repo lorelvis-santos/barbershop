@@ -1,0 +1,14 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.crud-actions {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: p.$gap;
+}
+
+.crud-action {
+    @include m.tablet {
+        width: fit-content;
+    }
+}

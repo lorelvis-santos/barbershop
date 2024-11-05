@@ -1,0 +1,1 @@
+async function init(){await getBookedAppointments("employees","employees",!0)||showAlert("error","No hay citas agendadas",".app",!1)}document.addEventListener("DOMContentLoaded",(function(){init()}));

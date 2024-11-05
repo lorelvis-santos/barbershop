@@ -1,0 +1,22 @@
+{
+    "name": "lorelvis/barbershop",
+    "description": "PHP 8, MVC, SQL, SASS, GULP project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controller\\": "./controller",
+            "Model\\": "./model",
+            "Classes\\": "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lorelvis Santos"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

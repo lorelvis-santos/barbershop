@@ -1,0 +1,41 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    button {
+        margin: 0 0 2rem 0;
+        width: 100%;
+
+        @include m.phone {
+            margin: 0;
+            max-width: 20rem;
+        }
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    @include m.phone {
+        .show,
+        .hide {
+            display: block;
+        }
+
+        .show {
+            visibility: visible;
+        }
+    
+        .hide {
+            visibility: hidden;
+        }
+    }
+}

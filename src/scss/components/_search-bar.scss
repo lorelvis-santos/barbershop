@@ -1,0 +1,68 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.search-container {
+    position: relative;
+}
+
+.search-bar {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 1.25rem;
+        right: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    input {
+        border-radius: 1.5rem;
+    }
+
+    &.active {
+        input {
+            border-radius: 1.5rem 1.5rem 0 0;
+            border-bottom: none;
+        }
+    }
+}
+
+.search-results-container {
+    background-color: lighten(p.$black, 5%);
+    border-radius: 0 0 1.5rem 1.5rem;
+    border: 3px solid lighten(p.$black, 10%);
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    max-height: 22rem;
+    overflow-y: auto;
+    z-index: 1;
+
+    // li {
+    //     border-bottom: 1px solid #36382b;
+
+    //     &:last-of-type {
+    //         border-bottom: none;
+    //         margin-bottom: 0;
+    //     }
+    // }
+
+    p {
+        transition: color .2s ease-out;
+        padding-block: 1.2rem;
+        font-size: 1.6rem;
+        margin: 0 0 0 1.2rem;
+        
+        cursor: pointer;
+
+        &:hover {
+            color: darken(p.$grey, 25%);
+        }
+    }
+
+    &.show {
+        display: block;
+    }
+}

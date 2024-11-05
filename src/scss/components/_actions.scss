@@ -1,0 +1,30 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.actions {
+    margin-top: p.$gap;
+    //display: flex;
+    //justify-content: space-between;
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    a {
+        color: darken(p.$grey, 15%);
+        transition: color .2s ease-out;
+        display: block;
+        text-align: center;
+        margin-bottom: calc(p.$gap / 2);
+
+        &:hover {
+            color: darken(p.$grey, 35%);
+        }
+
+        // &:last-of-type {
+        //     text-align: right;
+        // }
+    }
+}

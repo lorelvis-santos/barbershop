@@ -1,0 +1,57 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.services-list {
+    display: grid;
+    gap: 2rem;
+
+    @include m.tablet {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .service {
+        background-color: lighten(p.$black, 5%);
+        border: 3px solid lighten(p.$black, 10%);
+        border-radius: 1.5rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all .3s ease-out;
+
+        @include m.desktopXXL {
+            height: 17rem;
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+        }
+
+        .service__name {
+            margin-bottom: 2rem;
+            font-weight: p.$bold;
+        }
+
+        .service__price {
+            margin: 0 auto;
+            width: fit-content;
+            font-size: 2rem;
+            font-weight: p.$bold;
+            color: lighten(p.$green, 10%);
+            border-radius: 1.5rem;
+            padding: .8rem 1.2rem;
+            transition: background-color .3s ease-out;
+        }
+
+        &.selected,
+        &:hover {
+            background-color: p.$blue;
+            border: 3px solid p.$blue;
+
+            .service__price {
+                background-color: p.$white;
+            }
+        }
+    }
+}

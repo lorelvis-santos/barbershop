@@ -1,0 +1,57 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.flatpickr-calendar {
+    background-color: lighten(p.$black, 5%); 
+
+    .flatpickr-months {
+        .flatpickr-month {
+            background-color: lighten(p.$black, 5%); 
+
+            .flatpickr-current-month {
+                .flatpickr-monthDropdown-months {
+                    background-color: lighten(p.$black, 5%); 
+
+                    .flatpickr-monthDropdown-month {
+                        background-color: lighten(p.$black, 5%); 
+                    }
+                }
+            }
+        }
+    }
+
+    .flatpickr-rContainer {
+        background-color: lighten(p.$black, 5%); 
+    
+        .flatpickr-weekdays {
+            padding: 1rem;
+            margin-top: 1rem;
+    
+            .flatpickr-weekday {
+                background-color: lighten(p.$black, 5%);
+            }
+        }
+        
+        .dayContainer {
+            padding: 1rem;
+
+            .flatpickr-day {
+                &:hover,
+                &.selected {
+                    background-color: p.$blue;
+                    border-color: p.$blue;
+                }
+
+                &.flatpickr-disabled {
+                    &:hover {
+                        background-color: transparent;
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,49 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.tabs {
+    @include m.tablet {
+        display: flex;
+    }
+
+    button {
+        background-color: p.$blue;
+        border: none;
+        color: p.$white;
+        padding: 1.4rem;
+        //border-radius: 1.5rem;
+        width: 100%;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        font-weight: p.$bold;
+        transition: all .2s ease-out;
+        border-radius: 1.5rem;
+
+        @include m.tablet {
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken(p.$blue, 5%);
+        }
+
+        &.current {
+            background-color: p.$white;
+            color: p.$blue;
+        }
+
+        &:first-of-type {
+            @include m.tablet {
+                border-radius: 1.5rem 0 0 1.5rem;
+            }
+        }
+
+        &:last-of-type {
+            @include m.tablet {
+                border-radius: 0 1.5rem 1.5rem 0;
+            }
+        }
+    }
+}

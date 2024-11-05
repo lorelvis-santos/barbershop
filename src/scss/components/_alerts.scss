@@ -1,0 +1,46 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.alert {
+    padding: calc(p.$gap / 4);
+    color: p.$white;
+    width: 100%;
+    display: block;
+    margin-bottom: 2rem;
+    border-radius: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: p.$bold;
+    text-align: center;
+    text-transform: uppercase;
+
+    &.error {
+        background-color: p.$red;
+    }
+
+    &.success {
+        background-color: p.$green;
+    }
+}
+
+.swal2-popup {
+    width: 38em;
+    border-radius: 1.5rem;
+
+    #swal2-title {
+        font-size: 2.4rem;
+    }
+
+    #swal2-html-container {
+        font-size: 2rem;
+    }
+
+    button {
+        font-size: 1.6rem;
+        background-color: p.$blue;
+        border-radius: .5em;
+    }
+
+    .swal2-footer {
+        font-size: 1.4rem;
+    }
+}

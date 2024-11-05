@@ -1,0 +1,73 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.form {
+    width: 100%;
+    color-scheme: dark;
+
+    div.place-right {
+        margin-top: p.$gap;
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    
+    label {
+        font-size: 1.6rem;
+    }
+
+    input,
+    select {
+        border: 3px solid lighten(p.$black, 10%);
+        padding: calc(p.$gap / 4);
+        border-radius: 1.5rem;
+        background-color: lighten(p.$black, 5%);
+        width: 100%;
+
+        &:disabled {
+            cursor: not-allowed;
+            color: darken(p.$white, 35%);
+        }
+    }
+
+    select {
+        cursor: pointer;
+    }
+}
+
+.available-times {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+
+    @include m.phone {
+        gap: 1.6rem;
+    }
+
+    .available-time {
+        background-color: lighten(p.$black, 5%);
+        border: 3px solid lighten(p.$black, 10%);
+        padding: 1rem;
+        border-radius: 1.5rem;
+        color: p.$white; 
+        width: 10.5rem;   
+        text-align: center;
+        cursor: pointer;
+        transition: background-color .3s ease-out;
+        user-select: none;
+
+        &.selected,
+        &:hover {
+            background-color: p.$blue;
+            border: 3px solid p.$blue;
+        }
+    }
+}

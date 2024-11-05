@@ -1,0 +1,54 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.summary {
+    .form,
+    h2 {
+        margin-bottom: p.$gap;
+    }
+}
+
+.service-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 3px solid lighten(p.$black, 10%);
+    padding: 0 calc(p.$gap / 4);
+    border-radius: 1.5rem;
+    background-color: lighten(p.$black, 5%);
+    overflow-x: auto;
+
+    .service__name,
+    .service__price {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .service__name {
+        color: p.$white;
+    }
+
+    .service__price {
+        color: lighten(p.$green, 10%);
+    }
+}
+
+.total-price-container {
+    display: flex;
+    justify-content: center;
+
+    @include m.tablet {
+        justify-content: flex-end;
+    }
+}
+
+.total-price {
+    text-align: center;
+    font-weight: p.$bold;
+
+    span {
+        color: lighten(p.$green, 10%);
+    }
+}

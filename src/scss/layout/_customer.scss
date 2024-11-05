@@ -1,0 +1,8 @@
+@use "base/properties" as p;
+@use "base/mixins" as m;
+
+.date-info {
+    .field {
+        margin-bottom: 3.2rem;
+    }
+}

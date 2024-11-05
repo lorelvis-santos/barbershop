@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "iostream": "cpp"
+    },
+    "php.version": "8.4",
+    "liveServer.settings.port": 5501
+}

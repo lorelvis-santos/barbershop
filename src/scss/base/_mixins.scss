@@ -1,0 +1,79 @@
+@use "properties" as p;
+
+/** Media Queries **/
+@mixin phoneSM {
+    @media (min-width: p.$phoneSM) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media (min-width: p.$phone) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: p.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktopSM {
+    @media (min-width: p.$desktopSM) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: p.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: p.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin desktopXXL {
+    @media (min-width: p.$desktopXXL) {
+        @content;
+    }
+}
+
+
+@mixin button($bgColor, $textColor) {
+    background-color: $bgColor;
+    padding: 1.6rem 3.2rem;
+    color: $textColor;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 2rem 0;
+    border-radius: 1.5rem;
+
+
+    @include tablet {
+        width: auto;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin grid($columns, $gap ) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($columns, 1fr);
+}
